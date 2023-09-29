@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/study_list.css' %}">
+    <title>공부한것</title>
+{% endblock %}
+{% block body %}
+    <table>
+        <div class="thead-row">
+            <tr>
+                <th id="h-title">제목</th>
+                <th id="h-sub">주제</th>
+                <th id="h-level">난이도</th>
+                <th id="h-important">중요성</th>
+                <th id="h-repeat">복습횟수</th>
+                <th id="h-cre">작성일자</th>
+                <th id="h-modi">수정일자</th>
+            </tr>
+        </div>
+        {% for post in post_list %}
+            <tr>
+                <td><a href="#">{{ post.title }}</a></td>
+                <td>{{ post.subject }}</td>
+                <td>{{ post.level }}</td>
+                <td>{{ post.importance }}</td>
+                <td>{{ post.repeat }}</td>
+                <td>{{ post.created_at }}</td>
+                <td>{{ post.modified_at }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

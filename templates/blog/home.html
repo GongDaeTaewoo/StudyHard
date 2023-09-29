@@ -1,0 +1,50 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <title>메인</title>
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="study">
+        <h2 id="study_h2">최근 공부한것</h2>
+        <div class="study_container">
+            <ul class="study_title_container">
+                {% for post in study_post %}
+                    <li class="study_title">{{ post.title }}</li>
+                {% endfor %}
+            </ul>
+            <ul class="study_date_container">
+                {% for post in study_post %}
+                    <li class="study_date">{{ post.created_at }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="refer">
+        <h2 id="refer_h2">유익한 사이트나 자료</h2>
+        <div class="refer_container">
+            <ul class="refer_title_container">
+                {% for post in refer_post %}
+                    <li class="refer_title">{{ post.address }}</li>
+                {% endfor %}
+            </ul>
+            <ul class="refer_date_container">
+                {% for post in refer_post %}
+                    <li class="refer_date">{{ post.created_at }}</li>
+                {% endfor %}
+            </ul>
+            <ul class="refer_subject_container">
+                {% for post in refer_post %}
+                    <li class="refer_subject">({{ post.subject }})</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <p>이 사이트는 GongDaeTaewoo의 개인 공부기록 사이트입니다.</p>
+    </body>
+{% endblock %}

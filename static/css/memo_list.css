@@ -1,0 +1,32 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Nanum+Pen+Script&display=swap');
+
+
+div.full-memo{
+    display:flex;
+}
+div.one-memo{
+    border:1px solid black;
+    padding: 10px;
+    margin:10px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #79aec8;
+
+}
+div.one-memo h3{
+    fon-size:20px;
+}
+div.one-memo p.memo-content{
+    font-family: 'Nanum Pen Script', cursive;
+    font-size:25px;
+}
+div img{
+    width:20px;
+    height:30px;
+}
+
+div.one-memo.memo-flex{
+    display:flex;
+    text-align: center;
+}

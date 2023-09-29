@@ -1,0 +1,17 @@
+table{
+    /*line-height: 30px;*/
+    /*text-align: center;*/
+    border-collapse: separate;
+    border-spacing:20px 15px;
+    text-align: center;
+}
+
+th{
+    border-width: 2px;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-color: #999999;
+}
+td a{
+    text-decoration: none;
+}

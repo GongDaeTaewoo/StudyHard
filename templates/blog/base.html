@@ -1,0 +1,29 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/../../static/css/base.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    {% endblock %}
+
+</head>
+<body>
+<img id="title_image" src="{% static 'img/nav_image.jpg' %}">
+<h1 id="title">StudyHard</h1>
+
+<nav class="nav">
+    <ul>
+        <li><a href="/">홈</a></li>
+        <li><a href="{% url 'blog:study-list' %}">공부한것</a></li>
+        <li><a href="{% url 'blog:refer-list' %}">유익한 자료나 사이트</a></li>
+        <li><a href="{% url 'blog:memo-list' %}">메모장</a></li>
+    </ul>
+</nav>
+    {% block body %}
+
+
+
+    {% endblock %}
+
+</body>
+</html>

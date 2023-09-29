@@ -1,0 +1,74 @@
+div.study_container{
+	display:flex;
+	flex-direction: row;
+}
+
+div li.study_date{
+	list-style: none;
+}
+
+div li.study_title{
+	list-style:none;
+}
+
+div ul.study_title_container{
+	margin-left:20px;
+	padding:10px;
+}
+div ul.study_date_container{
+	margin-right:20px;
+	padding:10px;
+}
+
+#study_h2{
+	text-align: center;
+}
+
+.study{
+	border: 3px solid rgb(134, 134, 236);
+	display:inline-block;
+}
+
+
+
+
+div.refer_container{
+	display:flex;
+	flex-direction: row;
+}
+
+div li.refer_date{
+	list-style: none;
+}
+
+div li.refer_title{
+	list-style:none;
+}
+
+div ul.refer_title_container{
+	margin-left:20px;
+	padding:10px;
+}
+div ul.refer_date_container{
+	margin-right:0px;
+	padding:10px;
+}
+
+#refer_h2{
+	text-align: center;
+}
+
+.refer{
+	border: 3px solid rgb(134, 134, 236);
+	display:inline-block;
+}
+
+div ul.refer_subject_container{
+	padding:10px;
+	margin-left:0px;
+	padding-left:0px;
+}
+
+div li.refer_subject{
+	list-style: none;
+}

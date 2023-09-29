@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/memo_list.css' %}">
+    <title>메모장</title>
+{% endblock %}
+{% block body %}
+    <div class="full-memo">
+        {% for memo in memo_list %}
+            <div class="one-memo">
+                <img class="memo-picture" src="{% static 'img/memo.png' %}">
+                <h3>{{ memo.title }}</h3>
+                <p class="memo-content">{{ memo.content }}</p>
+                <p class="memo-date">{{ memo.created_at }}</p>
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

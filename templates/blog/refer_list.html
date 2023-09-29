@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/refer_list.css' %}">
+    <title>참고자료나 사이트</title>
+{% endblock %}
+{% block body %}
+    <table>
+        <tr>
+            <th>제목</th>
+            <th>주제</th>
+            <th>주소</th>
+            <th>작성일자</th>
+        </tr>
+        {% for post in post_list %}
+            <tr>
+                <td><a href="#">{{ post.title }}</a></td>
+                <td>{{ post.subject }}</td>
+                <td>{{ post.address }}</td>
+                <td>{{ post.created_at }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
