@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 
 from blog.forms import StudyPostForm, ReferPostForm, MemoPostForm
@@ -19,6 +20,8 @@ def study_list(request):
 
 def study_detail(request, pk):
     post = get_object_or_404(Study, pk=pk)
+    post.repeat+=1
+    post.save()
     context = {'post': post}
     return render(request, 'blog/study_detail.html', context=context)
 
@@ -29,7 +32,7 @@ def study_create(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-        return redirect(post)
+            return redirect(post)
     else:
         form = StudyPostForm()
     return render(request, 'blog/study_create.html', {'form': form})
@@ -42,7 +45,7 @@ def study_update(request, pk):
         form = StudyPostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=True)
-            redirect(post)
+            return redirect(post)
     else:
         form = StudyPostForm(instance=post)
     return render(request, 'blog/study_update.html', {'form': form})
@@ -52,7 +55,7 @@ def study_delete(request, pk):
     post = get_object_or_404(Study, pk=pk)
     if request.method == "POST":
         post.delete()
-        return redirect('blog:study_delete')
+        return redirect('blog:study-list')
     else:
         return render(request, 'blog/study_delete_confirm.html')
 
@@ -66,15 +69,6 @@ class ReferList(ListView):
 refer_list = ReferList.as_view()
 
 
-class ReferDetail(DetailView):
-    model = Reference
-    template_name = 'blog/refer_detail.html'
-    context_object_name = 'refer_post'
-
-
-refer_detail = ReferDetail.as_view()
-
-
 class ReferCreate(CreateView):
     model = Reference
     form_class = ReferPostForm
@@ -84,14 +78,10 @@ class ReferCreate(CreateView):
 
 refer_create = ReferCreate.as_view()
 
-
-class ReferDelete(DeleteView):
-    model = Reference
-    template_name = 'refer_delete_confirm.html'
-
-
-refer_delete = ReferDelete.as_view()
-
+def refer_delete(request,pk):
+    post = get_object_or_404(Reference,pk=pk)
+    post.delete()
+    return redirect('blog:refer-list')
 
 class MemoList(ListView):
     model = Memo
@@ -112,9 +102,7 @@ class MemoCreate(CreateView):
 memo_create = MemoCreate.as_view()
 
 
-class MemoDelete(DeleteView):
-    model = Memo
-    template_name = 'memo_delete_confirm.html'
-
-
-memo_delete = MemoDelete.as_view()
+def memo_delete(request,pk):
+    memo = get_object_or_404(Memo,pk=pk)
+    memo.delete()
+    return redirect('blog:memo-list')

@@ -11,11 +11,10 @@ urlpatterns = [
     path('study/<int:pk>/', views.study_detail, name="study-detail"),
     path('study/create/', views.study_create, name="study-create"),
     path('study/<int:pk>/update/', views.study_update, name="study-update"),
-    path('study/<int:pk>/delete/', views.study_delete, name="study_delete"),
+    path('study/<int:pk>/delete/', views.study_delete, name="study-delete"),
     #
     # # reference
     path('refer/', views.refer_list, name="refer-list"),
-    path('refer/<int:pk>/', views.refer_detail, name="refer-list"),
     path('refer/<int:pk>/delete/', views.refer_delete, name="refer-delete"),
     path('refer/create/', views.refer_create, name="refer-create"),
     #

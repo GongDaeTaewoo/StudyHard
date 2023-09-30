@@ -12,14 +12,17 @@
             <th>주제</th>
             <th>주소</th>
             <th>작성일자</th>
+            <th></th>
         </tr>
         {% for post in post_list %}
             <tr>
-                <td><a href="#">{{ post.title }}</a></td>
+                <td>{{ post.title }}</td>
                 <td>{{ post.subject }}</td>
-                <td>{{ post.address }}</td>
+                <td><a href="{{ post.address }}">{{ post.address }}</a></td>
                 <td>{{ post.created_at }}</td>
+                <td><button><a href="{% url 'blog:refer-delete' post.pk %}">삭제</a></button></td>
             </tr>
         {% endfor %}
     </table>
+    <button><a href="{% url 'blog:refer-create' %}">글쓰기</a></button>
 {% endblock %}

@@ -11,11 +11,11 @@
 
 
     <div class="study">
-        <h2 id="study_h2">최근 공부한것</h2>
+        <h2 id="study_h2"><a href="{% url 'blog:study-list' %}">최근 공부한것</a></h2>
         <div class="study_container">
             <ul class="study_title_container">
                 {% for post in study_post %}
-                    <li class="study_title">{{ post.title }}</li>
+                    <li class="study_title"><a href="{% url 'blog:study-detail' post.pk %}">{{ post.title }}</a></li>
                 {% endfor %}
             </ul>
             <ul class="study_date_container">
@@ -26,11 +26,11 @@
         </div>
     </div>
     <div class="refer">
-        <h2 id="refer_h2">유익한 사이트나 자료</h2>
+        <h2 id="refer_h2"><a href="{% url 'blog:refer-list' %}">유익한 사이트나 자료</a></h2>
         <div class="refer_container">
             <ul class="refer_title_container">
                 {% for post in refer_post %}
-                    <li class="refer_title">{{ post.address }}</li>
+                    <li class="refer_title"><a href="{{ post.address }}">{{ post.address }}</a></li>
                 {% endfor %}
             </ul>
             <ul class="refer_date_container">

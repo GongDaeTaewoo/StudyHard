@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+    {#    <link rel="stylesheet" type="text/css" href="{% static 'css/refer_list.css' %}">#}
+    <title>공부한것|삭제</title>
+{% endblock %}
+
+{% block body %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>정말 삭제하시겠습니까?</p>
+        <button type="submit">삭제</button>
+    </form>
+{% endblock %}

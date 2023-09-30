@@ -12,8 +12,10 @@
                 <h3>{{ memo.title }}</h3>
                 <p class="memo-content">{{ memo.content }}</p>
                 <p class="memo-date">{{ memo.created_at }}</p>
+                <button type="submit"><a href="{% url 'blog:memo-delete' memo.pk %}">삭제</a></button>
 
             </div>
         {% endfor %}
     </div>
+    <button><a href="{% url 'blog:memo-create' %}">메모 작성</a></button>
 {% endblock %}

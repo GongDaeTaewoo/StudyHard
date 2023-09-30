@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/refer_list.css' %}">
+    <title>공부한것|{{ post.title }}</title>
+{% endblock %}
+
+{% block body %}
+    <h1>제목:{{ post.title }}</h1>
+    <h2>주제:{{ post.subject }}</h2>
+    <h3>{{ post.content }}</h3>
+
+    <p>난이도:{{ post.level }}</p>
+    <p>중요도:{{ post.importance }}</p>
+    <p>복습횟수:{{ post.repeat }}</p>
+    <p>작성일:{{ post.created_at }}</p>
+    <p>수정일:{{ post.modified_at }}</p>
+    <button><a href="{% url 'blog:study-list' %}">돌아가기</a></button>
+    <button><a href="{% url 'blog:study-update' post.pk %}">수정</a></button>
+    <button><a href="{% url 'blog:study-delete' post.pk %}">삭제</a></button>
+{% endblock %}

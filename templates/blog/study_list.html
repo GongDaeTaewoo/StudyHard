@@ -19,14 +19,17 @@
         </div>
         {% for post in post_list %}
             <tr>
-                <td><a href="#">{{ post.title }}</a></td>
+                <td><a href="{% url 'blog:study-detail' post.pk %}">{{ post.title }}</a></td>
                 <td>{{ post.subject }}</td>
                 <td>{{ post.level }}</td>
                 <td>{{ post.importance }}</td>
                 <td>{{ post.repeat }}</td>
                 <td>{{ post.created_at }}</td>
-                <td>{{ post.modified_at }}</td>
+                {% if post.modified_at != None %}
+                    <td>{{ post.modified_at }}</td>
+                {% endif %}
             </tr>
         {% endfor %}
     </table>
+    <button><a href="{% url 'blog:study-create' %}">글쓰기</a></button>
 {% endblock %}

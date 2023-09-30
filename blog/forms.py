@@ -6,16 +6,16 @@ from blog.models import Study, Reference, Memo
 class StudyPostForm(forms.ModelForm):
     class Meta:
         model = Study
-        fields = "__all__"
+        fields = ['title','subject','content','level','importance']
 
 
 class ReferPostForm(forms.ModelForm):
     class Meta:
         model = Reference
-        fields = "__all__"
+        fields = ['title','subject','address']
 
 
 class MemoPostForm(forms.ModelForm):
     class Meta:
         model = Memo
-        fields = "__all__"
+        fields = ['title','content']

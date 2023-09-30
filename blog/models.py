@@ -4,16 +4,17 @@ from django.urls import reverse
 
 
 class Study(models.Model):
-    title=models.CharField(max_length=15)
-    subject=models.CharField(max_length=15)
-    content=models.TextField(max_length=1000)
-    level=models.PositiveSmallIntegerField(validators=[MaxValueValidator(6)])
-    importance=models.PositiveSmallIntegerField(validators=[MaxValueValidator(6)])
-    repeat=models.PositiveSmallIntegerField()
-    created_at=models.DateField(auto_now_add=True)
-    modified_at=models.DateField(auto_now=False,blank=True)
+    title = models.CharField(max_length=15)
+    subject = models.CharField(max_length=15)
+    content = models.TextField(max_length=1000)
+    level = models.PositiveSmallIntegerField(validators=[MaxValueValidator(6)])
+    importance = models.PositiveSmallIntegerField(validators=[MaxValueValidator(6)])
+    repeat = models.PositiveSmallIntegerField(default=0)
+    created_at = models.DateField(auto_now_add=True)
+    modified_at = models.DateField(auto_now=False, blank=True, null=True)
+
     def get_absolute_url(self):
-        return reverse('blog:study-detail',args=self.pk)
+        return reverse('blog:study-detail', args=[self.pk])
 
 
 class Reference(models.Model):
@@ -22,7 +23,14 @@ class Reference(models.Model):
     address = models.URLField()
     created_at = models.DateField(auto_now_add=True)
 
+    def get_absolute_url(self):
+        return reverse('blog:refer-list')
+
+
 class Memo(models.Model):
-    title=models.CharField(max_length=10)
+    title = models.CharField(max_length=10)
     content = models.TextField(max_length=30)
-    created_at=models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def get_absolute_url(self):
+        return reverse('blog:memo-list')
